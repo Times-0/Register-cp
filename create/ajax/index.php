@@ -3,7 +3,7 @@
 Register for Timeline, by Dote. Thanks to ro.
 */
 session_start();
-error_reporting(1);
+error_reporting(0);
 
 include('Mail.php');
 
