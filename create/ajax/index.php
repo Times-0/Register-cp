@@ -3,7 +3,7 @@
 Register for Timeline, by Dote. Thanks to ro.
 */
 session_start();
-error_reporting(0);
+error_reporting(1);
 
 include('Mail.php');
 
@@ -24,7 +24,7 @@ define('SMTP_PASS', 'email password');
 define('SMTP_HOST', 'smtp.gmail.com'); // change this for diff host
 define('SMTP_PORT', '465'); // port may vary with diff host
 $welcomeAuthText = <<<EOD
-<html class="gr__localhost"><head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <style> *:before {box-sizing: border-box; } *:after {box-sizing: border-box; } body {background: #fff; color: #140b2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-weight: 400; line-height: 28px; overflow-x: hidden; } a:hover {color: #5e35b1; text-decoration: none; } a:focus {color: #5e35b1; text-decoration: none; } a:active {color: #5e35b1; text-decoration: none; } .btn:active {box-shadow: 0 0 0 1px rgba(20, 11, 47, 0.1), 0 0 0 4px rgba(91, 147, 255, 0.25); outline: none; } .btn:focus {box-shadow: 0 0 0 1px rgba(20, 11, 47, 0.1), 0 0 0 4px rgba(91, 147, 255, 0.25); outline: none; } .btn-primary:hover {background-color: #5e35b1; box-shadow: 0 0 0 1px #5e35b1, 0 2px 4px -2px rgba(0, 0, 0, 0.2); color: #fff; } .btn-primary:active {background: #512da8; box-shadow: 0 0 0 1px #512da8, 0 0 0 4px rgba(91, 147, 255, 0.25); color: #fff; } .btn-primary:focus {background: #512da8; box-shadow: 0 0 0 1px #512da8, 0 0 0 4px rgba(91, 147, 255, 0.25); color: #fff; } .btn-secondary:hover {background-color: #fafafb; color: #726d82; } .btn-secondary:focus {background-color: #fafafb; color: #726d82; } .devise-form .help-links a:hover {color: #512da8; } .devise-form .help-links a:focus {color: #512da8; } @keyframes shake {} .form-control:hover {box-shadow: 0 0 0 1px rgba(20, 11, 47, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.2); } .form-control:focus {box-shadow: 0 0 0 1px rgba(20, 11, 47, 0.1), 0 0 0 4px rgba(91, 147, 255, 0.25); outline: 0; } .form-control[disabled="disabled"]:hover {border: 1px solid transparent; } .has-error .help-block::first-letter {text-transform: capitalize; } .has-error .form-control:focus {box-shadow: 0 0 0 1px #e45734, 0 2px 4px -2px rgba(0, 0, 0, 0.2); } body {margin: 0; } img {border-style: none; } body {background-color: #fff !important; } @media screen and (max-width: 512px) {.horizontal-form {flex-direction: column; } .horizontal-form .form-control {margin-bottom: 10px; } .flex-group {align-items: stretch; flex-direction: column; } .flex-group.half {max-width: 100%; } .flex-group.quarter {max-width: 100%; } } </style> </head> <body style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); color: #140b2f; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-weight: 400; line-height: 28px; overflow-x: hidden; margin: 0;" bgcolor="#fff" data-gr-c-s-loaded="true"> <div class="dt-container narrow email" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); max-width: 568px; margin: 0 auto; padding: 48px 24px;"> <div class="hidden" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); color: #fff; display: none; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden;">Thanks for signing up! You’ve joined an awesome project - Timeline, over 100+ users who love the service we provide.</div> <a href="http://localhost/signup/" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); color: #512da8; outline: none; text-decoration: none; background-color: transparent; -webkit-text-decoration-skip: objects;" target="_blank">Timeline</a> <p style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); "><img src="https://dovetailapp.com/assets/emails/welcome@2x-0412be5af2894865d654716800bda52958aecd27c5e991ddc7a018b555aff2cf.png" alt="Welcome@2x" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); display: block; border-radius: 3px; border: none;" width="500" height="308"></p> <h1 id="matthew-welcome-to-dovetail-were-very-excited-youre-here" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); font-size: 2em; font-weight: 600; line-height: 40px;  padding: 0;">{nickname}, welcome to Timeline! We’re very excited you have joined this amazing project.</h1> <p style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); ">You have successfully registered your penguin, you can anytime login and play the cpps with the username and password you have set</p> <p style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); ">In order to use the nickname as you set in-game, you have to verify this email. Once you do, your nickname is once'n-for-all yours!<br> Click on the button below (or copy paste the link below it in new tab) to authenticate your account. You may (not necessary) want to input your Security Pin during this process.</p> <hr style="box-sizing: content-box; -webkit-tap-highlight-color: rgba(255,255,255,0); background-color: #e7e6ea; height: 1px; overflow: visible; "> <p style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); "><a class="btn btn-primary" href="http://create.localhost/auth?u={username}&k={key}" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); color: #fff; outline: none; text-decoration: none; border-radius: 3px; cursor: pointer; display: inline-block; font-size: 14px; font-weight: 600; height: 40px; text-align: center; -webkit-appearance: none; background-color: #512da8; box-shadow: 0 0 0 1px #512da8,0 2px 4px -2px rgba(0,0,0,0.2); -webkit-text-decoration-skip: objects; padding: 5px 16px; border: 1px solid transparent;" target="_blank">Authenticate This Email</a></p> <p style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); "><a href="http://localhost:2083/{username}/auth/{key}" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); color: #512da8; outline: none; text-decoration: none; background-color: transparent; -webkit-text-decoration-skip: objects;" target="_blank">http://create.localhost/auth?u={username}&k={key}</a></p> <hr style="box-sizing: content-box; -webkit-tap-highlight-color: rgba(255,255,255,0); background-color: #e7e6ea; height: 1px; overflow: visible; "> </div>  </body></html>
+<html class="gr__localhost"><head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <style> *:before {box-sizing: border-box; } *:after {box-sizing: border-box; } body {background: #fff; color: #140b2f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-weight: 400; line-height: 28px; overflow-x: hidden; } a:hover {color: #5e35b1; text-decoration: none; } a:focus {color: #5e35b1; text-decoration: none; } a:active {color: #5e35b1; text-decoration: none; } .btn:active {box-shadow: 0 0 0 1px rgba(20, 11, 47, 0.1), 0 0 0 4px rgba(91, 147, 255, 0.25); outline: none; } .btn:focus {box-shadow: 0 0 0 1px rgba(20, 11, 47, 0.1), 0 0 0 4px rgba(91, 147, 255, 0.25); outline: none; } .btn-primary:hover {background-color: #5e35b1; box-shadow: 0 0 0 1px #5e35b1, 0 2px 4px -2px rgba(0, 0, 0, 0.2); color: #fff; } .btn-primary:active {background: #512da8; box-shadow: 0 0 0 1px #512da8, 0 0 0 4px rgba(91, 147, 255, 0.25); color: #fff; } .btn-primary:focus {background: #512da8; box-shadow: 0 0 0 1px #512da8, 0 0 0 4px rgba(91, 147, 255, 0.25); color: #fff; } .btn-secondary:hover {background-color: #fafafb; color: #726d82; } .btn-secondary:focus {background-color: #fafafb; color: #726d82; } .devise-form .help-links a:hover {color: #512da8; } .devise-form .help-links a:focus {color: #512da8; } @keyframes shake {} .form-control:hover {box-shadow: 0 0 0 1px rgba(20, 11, 47, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.2); } .form-control:focus {box-shadow: 0 0 0 1px rgba(20, 11, 47, 0.1), 0 0 0 4px rgba(91, 147, 255, 0.25); outline: 0; } .form-control[disabled="disabled"]:hover {border: 1px solid transparent; } .has-error .help-block::first-letter {text-transform: capitalize; } .has-error .form-control:focus {box-shadow: 0 0 0 1px #e45734, 0 2px 4px -2px rgba(0, 0, 0, 0.2); } body {margin: 0; } img {border-style: none; } body {background-color: #fff !important; } @media screen and (max-width: 512px) {.horizontal-form {flex-direction: column; } .horizontal-form .form-control {margin-bottom: 10px; } .flex-group {align-items: stretch; flex-direction: column; } .flex-group.half {max-width: 100%; } .flex-group.quarter {max-width: 100%; } } </style> </head> <body style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); color: #140b2f; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-weight: 400; line-height: 28px; overflow-x: hidden; margin: 0;" bgcolor="#fff" data-gr-c-s-loaded="true"> <div class="dt-container narrow email" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); max-width: 568px; margin: 0 auto; padding: 48px 24px;"> <div class="hidden" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); color: #fff; display: none; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden;">Thanks for signing up! You’ve joined an awesome project - Timeline, over 100+ users who love the service we provide.</div> <a href="http://localhost/signup/" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); color: #512da8; outline: none; text-decoration: none; background-color: transparent; -webkit-text-decoration-skip: objects;" target="_blank">Timeline</a> <p style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); "><img src="https://dovetailapp.com/assets/emails/welcome@2x-0412be5af2894865d654716800bda52958aecd27c5e991ddc7a018b555aff2cf.png" alt="Welcome@2x" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); display: block; border-radius: 3px; border: none;" width="500" height="308"></p> <h1 id="matthew-welcome-to-dovetail-were-very-excited-youre-here" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); font-size: 2em; font-weight: 600; line-height: 40px;  padding: 0;">{nickname}, welcome to Timeline! We’re very excited you have joined this amazing project.</h1> <p style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); ">You have successfully registered your penguin, you can anytime login and play the cpps with the username and password you have set</p> <p style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); ">In order to use the nickname as you set in-game, you have to verify this email. Once you do, your nickname is once'n-for-all yours!<br> Click on the button below (or copy paste the link below it in new tab) to authenticate your account. You may (not necessary) want to input your Security Pin during this process.</p> <hr style="box-sizing: content-box; -webkit-tap-highlight-color: rgba(255,255,255,0); background-color: #e7e6ea; height: 1px; overflow: visible; "> <p style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); "><a class="btn btn-primary" href="http://create.localhost/activate.html?u={username}&k={key}" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); color: #fff; outline: none; text-decoration: none; border-radius: 3px; cursor: pointer; display: inline-block; font-size: 14px; font-weight: 600; height: 40px; text-align: center; -webkit-appearance: none; background-color: #512da8; box-shadow: 0 0 0 1px #512da8,0 2px 4px -2px rgba(0,0,0,0.2); -webkit-text-decoration-skip: objects; padding: 5px 16px; border: 1px solid transparent;" target="_blank">Authenticate This Email</a></p> <p style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); "><a href="http://localhost:2083/{username}/auth/{key}" style="box-sizing: border-box; -webkit-tap-highlight-color: rgba(255,255,255,0); color: #512da8; outline: none; text-decoration: none; background-color: transparent; -webkit-text-decoration-skip: objects;" target="_blank">http://create.localhost/activate.html?u={username}&k={key}</a></p> <hr style="box-sizing: content-box; -webkit-tap-highlight-color: rgba(255,255,255,0); background-color: #e7e6ea; height: 1px; overflow: visible; "> </div>  </body></html>
 EOD;
 
 function post_request($url, $data)
@@ -280,6 +280,57 @@ function sendActivationMail($key, $n, $u, $e) {
 	} catch (Exception $e) { }
 }
 
+function activateUser() {
+	global $result;
+	global $pdo;
+
+	if (!recaptchaVerify()) {
+		$result['response']['error'][] = 'Captcha authentication failed.';
+		return;
+	}
+
+	if (!isset($_POST['formId']) || $_POST['formId'] != $_SESSION['form_id']) {
+		$result['response']['error'][] = 'Dumbo, stop trying to mess with me';
+		return;
+	}
+
+	$u = $_POST['u'];
+	$k = $_POST['k'];
+
+	$_SESSION = array();
+	session_destroy();
+
+	// try activating the user
+	$selectStmt = $pdo->prepare("SELECT `hash` FROM `penguins` WHERE `username` = ?");
+	$selectStmt->execute(array($u));
+	$hash = $selectStmt->fetch(PDO::FETCH_ASSOC);
+	if(!!!$hash) {
+		$result['response']['error'][] = 'Could you stop, you are such an embarrasment!';
+		return;
+	}
+	$hash = $hash['hash'];
+	
+	if ($hash == '' || !$hash || strpos($hash, ';')===false) {
+		$result['response']['error'][] = 'User already authenticated';
+		return;
+	}
+
+	$d = explode(';', $hash);
+	$hash = $d[0];
+	$nick = $d[1];
+
+	if ($hash != $k) {
+		$result['response']['error'][] = 'My goodness, wrong activation key. What are you even trying to do?';
+		return;
+	}
+
+	$updateStmt = $pdo->prepare("UPDATE `penguins` SET `nickname` = ? WHERE `username` = ?");
+	$updateStmt->execute(array($nick, $u));
+
+	$result['success'] = true;
+	$result['response']['activation'] = 'account.activated';
+}
+
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 $result = array('success' => null, 'response' => array('error' => array()));
 
@@ -300,6 +351,10 @@ if ($action == 'validate') {
 
 if ($action == 'create-user') {
 	createUser();
+} else
+
+if ($action == 'activate') {
+	activateUser();
 }
 
 else {
