@@ -329,6 +329,8 @@ function activateUser() {
 
 	$result['success'] = true;
 	$result['response']['activation'] = 'account.activated';
+    
+    $pdo->prepare("UPDATE `penguins` SET `hash` = '' WHERE `username` = ?")->execute(array($u));
 }
 
 $action = isset($_GET['action']) ? $_GET['action'] : null;
