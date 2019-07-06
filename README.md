@@ -1,5 +1,5 @@
 # Register-cp
-Register with CP Template
+Register with CP Template + Activation
 
 # Setup
 
@@ -29,6 +29,9 @@ reCAPTCHA_site_key : "Your site key goes here",
 Edit your MySQL data and reCaptcha secret key in the php file.
 
 Edit `create > ajax > index.php : line 17 to 25`, to match your credentials.
+
+## activation
+To enable account activation, you have to edit email smtp details, and change `create.localhost` domain in php to your domain, so users can activate their account.
 
 # Usage
 Visit [create.yourdomain.com](http://create.localhost/) and enjoy your register!
