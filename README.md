@@ -25,6 +25,8 @@ Edit reCaptcha **site key** in `create > js > register.js : line 5`
 reCAPTCHA_site_key : "Your site key goes here",
 ```
 
+Also edit it in `create > index.html` in **header** section
+
 ## mysql and captcha (server)
 Edit your MySQL data and reCaptcha secret key in the php file.
 
