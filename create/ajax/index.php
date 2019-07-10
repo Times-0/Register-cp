@@ -243,8 +243,8 @@ function createUser() {
 	$insertStmt->execute(array($user_id));
 
 	$memberships = strtotime("+7 day");
-	$insertStmt = $pdo->prepare("INSERT INTO `memberships` VALUES (NULL, ?, CURRENT_TIMESTAMP, ?, 'Redeemed during registration')");
-	$insertStmt->execute(array($user_id, date('c', $memberships)));
+	$insertStmt = $pdo->prepare("INSERT INTO `memberships` VALUES (NULL, ?, ?, CURRENT_TIMESTAMP, 'Redeemed during registration')");
+	$insertStmt->execute(array($user_id, date('Y-m-d H:i:s', $memberships)));
 
 	sendActivationMail($authKey, $n, $u, $e);
 	$result['success'] = true;
