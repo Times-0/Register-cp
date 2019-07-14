@@ -228,7 +228,7 @@ function createUser() {
 	$insertStmt = $pdo->prepare("INSERT INTO `penguins` (`username`, `password`, `nickname`, `email`, `swid`) VALUES (?, ?, ?, ?, CONCAT('{', UUID(), '}'))");
 	$insertStmt->execute(array($u, $p, $n, $e));
 
-	$authKey = md5(rand());
+	$authKey = bin2hex(openssl_random_pseudo_bytes(32));
 	$user_id = $pdo->lastInsertId();
 	$updateStmt = $pdo->prepare("UPDATE `penguins` SET `hash` = ?, `Nickname` = ? WHERE `ID` = ?");
 	$updateStmt->execute(array($authKey.';'.$n, 'P'.sprintf('%04d', $user_id), $user_id));
