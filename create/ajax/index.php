@@ -217,7 +217,7 @@ function createUser() {
 	}
 
 	$u = $_SESSION['username'];
-	$p = md5($_SESSION['password']);
+	$p = $_SESSION['password'];
 	$e = $_SESSION['email'];
 	$n = $_SESSION['nickname'];
 
